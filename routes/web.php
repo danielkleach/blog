@@ -13,6 +13,19 @@
 
 Auth::routes();
 
+Route::group(['prefix' => 'subjects'], function () {
+
+    Route::get('/', ['as' => 'subject.index', 'uses' => 'SubjectController@index']);
+    Route::post('/', ['as' => 'subject.store', 'uses' => 'SubjectController@store']);
+
+    Route::group(['prefix' => '{subjectId}'], function () {
+
+        Route::get('/', ['as' => 'subject.show', 'uses' => 'SubjectController@show']);
+        Route::patch('/', ['as' => 'subject.update', 'uses' => 'SubjectController@update']);
+        Route::delete('/', ['as' => 'subject.delete', 'uses' => 'SubjectController@destroy']);
+    });
+});
+
 Route::group(['prefix' => 'posts'], function () {
 
     Route::get('/', ['as' => 'post.index', 'uses' => 'PostController@index']);

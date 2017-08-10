@@ -30,25 +30,25 @@ class SubjectController extends Controller
 
     public function store(Request $request)
     {
-        $post = $this->subjectModel->create([
+        $subject = $this->subjectModel->create([
             'name' => $request->name,
             'slug' => $request->slug
         ]);
 
-        return view('subjects.show', compact('post'));
+        return view('subjects.show', compact('subject'));
     }
 
     public function update(Request $request, $id)
     {
-        $post = $this->subjectModel->where('id', '=', $id)->first();
+        $subject = $this->subjectModel->where('id', '=', $id)->first();
 
-        $post->update($request->all());
+        $subject->update($request->all());
     }
 
     public function destroy($id)
     {
-        $post = $this->subjectModel->where('id', '=', $id)->first();
+        $subject = $this->subjectModel->where('id', '=', $id)->first();
 
-        $post->delete();
+        $subject->delete();
     }
 }
