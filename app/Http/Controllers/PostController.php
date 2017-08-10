@@ -31,10 +31,10 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $post = $this->postModel->create([
-            'user_id' => $request->user_id,
             'subject_id' => $request->subject_id,
             'date' => $request->date,
             'title' => $request->title,
+            'slug' => $request->slug,
             'content' => $request->content,
             'published' => $request->published
         ]);
