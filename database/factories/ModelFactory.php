@@ -36,13 +36,14 @@ $factory->define(App\Subject::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Post::class, function (Faker\Generator $faker) {
+    $title = $faker->sentence;
 
     return [
-        'user_id' => factory(User::class)->lazy(),
         'subject_id' => factory(Subject::class)->lazy(),
         'date' => $faker->date($format = 'Y-m-d', $max = 'now'),
-        'title' => $faker->sentence,
-        'content' => $faker->text(400),
+        'title' => $title,
+        'slug' => str_slug($title),
+        'content' => $faker->realText(400),
         'published' => $faker->boolean(80)
     ];
 });
