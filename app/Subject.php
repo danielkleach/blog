@@ -10,4 +10,13 @@ class Subject extends Model
     use SoftDeletes;
 
     protected $guarded = [];
+
+    /***************************************/
+    /************ Relationships ************/
+    /***************************************/
+
+    public function post()
+    {
+        return $this->hasMany('App\Post');
+    }
 }
