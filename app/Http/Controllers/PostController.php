@@ -16,7 +16,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = $this->postModel->published()->get();
+        $posts = $this->postModel->with('subject')->published()->get();
 
         return view('posts.index', compact('posts'));
     }
