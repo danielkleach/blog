@@ -1,1 +1,5 @@
-<h1>Hi</h1>
+@extends('layout.master')
+
+@section('content')
+
+@endsection
