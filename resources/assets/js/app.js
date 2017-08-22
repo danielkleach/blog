@@ -11,7 +11,7 @@ $(document).ready(function() {
                     page += 1;
                     $.each(response.data, function(key, value) {
                         let post = `<div class="article-block">
-                                    <span class="subject"><a href="<a href="/subjects/${value.subject.slug}">${value.subject.name}</a></span>
+                                    <span class="subject"><a href="/subjects/${value.subject.slug}">${value.subject.name}</a></span>
                                     <h2 class="title"><a href="/posts/${value.slug}">${value.title}</a></h2>
                                     <span class="date">${value.formatted_date}</span>
                                     <div class="content">
