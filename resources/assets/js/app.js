@@ -1,1 +1,31 @@
+$(document).ready(function() {
+    const win = $(window);
+    let page = 1;
 
+    win.scroll(function() {
+        if ($(document).height() - win.height() == win.scrollTop()) {
+            $.ajax({
+                url: '/posts/?page=' + page,
+                dataType: 'json',
+                success: function(response) {
+                    page += 1;
+                    $.each(response.data, function(key, value) {
+                        let post = `<div class="article-block">
+                                    <span class="subject"><a href="<a href="/subjects/${value.subject.slug}">${value.subject.name}</a></span>
+                                    <h2 class="title"><a href="/posts/${value.slug}">${value.title}</a></h2>
+                                    <span class="date">${value.formatted_date}</span>
+                                    <div class="content">
+                                    <p>${value.content}</p>
+                                    </div>
+                                    <span class="read-more"><a href="/posts/${value.slug}">Read More</a></span>
+                            </div>`;
+                        $('main').append(post);
+                    });
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+    });
+});
