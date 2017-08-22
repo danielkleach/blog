@@ -2,10 +2,9 @@
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav">
             @if (Auth::guest())
-                <li><a href="">Home</a></li>
-                <li><a href="">Blog</a></li>
-                <li><a href="">Github</a></li>
-                <li><a href="">LinkedIn</a></li>
+                <li><a href="{{ route('home.index') }}">Home</a></li>
+                <li><a href="https://github.com/danielkleach" target="_blank">Github</a></li>
+                <li><a href="https://www.linkedin.com/in/daniel-leach-477a3847" target="_blank">LinkedIn</a></li>
             @else
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

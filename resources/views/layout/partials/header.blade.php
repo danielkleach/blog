@@ -13,12 +13,4 @@
         @include('layout.partials.nav')
     </header>
     <div class="wrapper">
-        <aside>
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-                <li>Item 4</li>
-            </ul>
-        </aside>
         <main>
