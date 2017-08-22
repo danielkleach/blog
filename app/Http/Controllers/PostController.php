@@ -16,14 +16,14 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = $this->postModel->with('subject')->published()->get();
+        $latestPosts = $this->postModel->with('subject')->published()->simplePaginate(9);
 
-        return view('posts.index', compact('posts'));
+        return $latestPosts;
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $post = $this->postModel->where('published', true)->findOrFail($id);
+        $post = $this->postModel->where('published', true)->where('slug', '=', $slug)->firstOrFail();
 
         return view('posts.show', compact('post'));
     }
@@ -42,16 +42,16 @@ class PostController extends Controller
         return view('posts.show', compact('post'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        $post = $this->postModel->where('id', '=', $id)->first();
+        $post = $this->postModel->where('slug', '=', $slug)->firstOrFail();
 
         $post->update($request->all());
     }
 
-    public function destroy($id)
+    public function destroy($slug)
     {
-        $post = $this->postModel->where('id', '=', $id)->first();
+        $post = $this->postModel->where('slug', '=', $slug)->firstOrFail();
 
         $post->delete();
     }

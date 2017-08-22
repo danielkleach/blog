@@ -21,9 +21,9 @@ class SubjectController extends Controller
         return view('subjects.index', compact('subjects'));
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $subject = $this->subjectModel->findOrFail($id);
+        $subject = $this->subjectModel->where('slug', '=', $slug)->firstOrFail();
 
         return view('subjects.show', compact('subject'));
     }
@@ -38,16 +38,16 @@ class SubjectController extends Controller
         return view('subjects.show', compact('subject'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        $subject = $this->subjectModel->where('id', '=', $id)->first();
+        $subject = $this->subjectModel->where('slug', '=', $slug)->firstOrFail();
 
         $subject->update($request->all());
     }
 
-    public function destroy($id)
+    public function destroy($slug)
     {
-        $subject = $this->subjectModel->where('id', '=', $id)->first();
+        $subject = $this->subjectModel->where('slug', '=', $slug)->firstOrFail();
 
         $subject->delete();
     }
