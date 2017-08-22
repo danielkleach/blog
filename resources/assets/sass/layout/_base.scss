@@ -14,25 +14,15 @@ body {
 }
 
 header {
-    padding: 20px;
+    padding: 40px 20px 0;
     text-align: center;
-}
-
-aside {
-    padding: 20px;
-    flex: 1 100%;
-    display: none;
-
-    @include media-query(lap-and-up) {
-        flex: 1;
-        display: block;
-    };
+    color: $color-dark-red;
 }
 
 main {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     flex: 1 100%;
 
     @include media-query(lap-and-up) {
@@ -89,16 +79,15 @@ tr th, tr td {
 }
 
 .nav > li a {
-    padding: 5px 10px;
+    padding: 10px;
     text-decoration: none;
-    color: $color-black;
     text-transform: uppercase;
+    color: $color-gray;
     font-weight: 700;
     font-size: 14px;
 
     @include media-query(tab-and-up) {
-        padding: 5px 15px;
-        color: $color-gray;
+        padding: 10px 15px;
     };
 }
 
@@ -111,10 +100,10 @@ tr th, tr td {
 .wrapper {
     display: flex;
     flex-flow: row wrap;
-    margin: 0 10px;
+    margin: 20px 10px;
 
     @include media-query(lap-and-up) {
-        margin: 0 20px;
+        margin: 40px 20px;
     };
 }
 
@@ -161,6 +150,11 @@ tr th, tr td {
     text-transform: uppercase;
 }
 
+.pagination {
+    flex: 1 100%;
+    text-align: right;
+}
+
 .alert {
     padding: 10px 40px;
 }
@@ -171,14 +165,4 @@ tr th, tr td {
 
 .alert-dismissable .close {
     right: 0;
-}
-
-// Footer
-footer {
-    padding: 15px 0;
-}
-
-.copyright {
-    padding-bottom: 5px;
-    text-align: center;
 }
