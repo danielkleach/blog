@@ -21,7 +21,7 @@ class PostTest extends TestCase
             'content' => 'This is the content.',
         ]);
 
-        $response = $this->get('/posts/' . $post->id);
+        $response = $this->get("/posts/{$post->slug}");
 
         $response->assertSee('This is a title');
         $response->assertSee('this_is_the_slug');
@@ -38,7 +38,7 @@ class PostTest extends TestCase
             'content' => 'This is the content.',
         ]);
 
-        $response = $this->get('/posts/' . $post->id);
+        $response = $this->get("/posts/{$post->slug}");
 
         $response->assertStatus(404);
     }
@@ -73,7 +73,7 @@ class PostTest extends TestCase
             'published' => 0
         ];
 
-        $response = $this->patchJson("/posts/{$post->id}", $data);
+        $response = $this->patchJson("/posts/{$post->slug}", $data);
 
         $response->assertStatus(200);
         $this->assertDatabaseHas('posts', $data);
@@ -83,9 +83,9 @@ class PostTest extends TestCase
     {
         $post = factory(Post::class)->create();
 
-        $response = $this->deleteJson("/posts/{$post->id}");
+        $response = $this->deleteJson("/posts/{$post->slug}");
 
         $response->assertStatus(200);
-        $this->assertDatabaseMissing('posts', ['id' => $post->id, 'deleted_at' => null]);
+        $this->assertDatabaseMissing('posts', ['slug' => $post->slug, 'deleted_at' => null]);
     }
 }

@@ -17,7 +17,7 @@ class SubjectTest extends TestCase
             'slug' => 'laravel',
         ]);
 
-        $response = $this->get('/subjects/' . $subject->id);
+        $response = $this->get("/subjects/{$subject->slug}");
 
         $response->assertSee('Laravel');
         $response->assertSee('laravel');
@@ -45,7 +45,7 @@ class SubjectTest extends TestCase
             'slug' => 'laravel',
         ];
 
-        $response = $this->patchJson("/subjects/{$subject->id}", $data);
+        $response = $this->patchJson("/subjects/{$subject->slug}", $data);
 
         $response->assertStatus(200);
         $this->assertDatabaseHas('subjects', $data);
@@ -55,9 +55,9 @@ class SubjectTest extends TestCase
     {
         $subject = factory(Subject::class)->create();
 
-        $response = $this->deleteJson("/subjects/{$subject->id}");
+        $response = $this->deleteJson("/subjects/{$subject->slug}");
 
         $response->assertStatus(200);
-        $this->assertDatabaseMissing('subjects', ['id' => $subject->id, 'deleted_at' => null]);
+        $this->assertDatabaseMissing('subjects', ['slug' => $subject->slug, 'deleted_at' => null]);
     }
 }
