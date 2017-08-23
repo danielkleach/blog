@@ -10,10 +10,11 @@ $(document).ready(function() {
                 success: function(response) {
                     page += 1;
                     $.each(response.data, function(key, value) {
+                        let date = moment(value.date).format("LL");
                         let post = `<div class="article-block">
                                     <span class="subject"><a href="/subjects/${value.subject.slug}">${value.subject.name}</a></span>
                                     <h2 class="title"><a href="/posts/${value.slug}">${value.title}</a></h2>
-                                    <span class="date">${value.formatted_date}</span>
+                                    <span class="date">${date}</span>
                                     <div class="content">
                                     <p>${value.content}</p>
                                     </div>
