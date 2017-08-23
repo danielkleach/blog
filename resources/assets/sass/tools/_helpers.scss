@@ -1,0 +1,34 @@
+/****************************************
+ * Helpers
+ ****************************************/
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn-danger {
+    color: $color-white;
+    background-color: $color-red;
+}
+
+.btn-danger:hover {
+    background-color: $color-dark-red;
+}
+
+.btn-blood {
+    color: $color-black;
+    background: $color-white;
+    border: 1px solid $color-gray;
+}
+
+.btn-blood:hover {
+    color: $color-red;
+}

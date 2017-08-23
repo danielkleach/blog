@@ -2,26 +2,34 @@
 
 namespace Tests\Unit;
 
+use App\Post;
+use Carbon\Carbon;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class PostTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testIndex()
+    use DatabaseTransactions;
+
+    public function test_it_can_get_formatted_date()
     {
-        // Arrange
-        // Create 5 posts
+        $post = factory(Post::class)->make([
+            'date' => Carbon::parse('2017-08-01')
+        ]);
 
-        // Act
-        // View the posts
+        $this->assertEquals('August 1, 2017', $post->formatted_date);
+    }
 
-        // Assert
-        // See the posts
+    public function test_published_posts_are_published()
+    {
+        $publishedPostA = factory(Post::class)->states('published')->create();
+        $publishedPostB = factory(Post::class)->states('published')->create();
+        $unpublishedPost = factory(Post::class)->states('unpublished')->create();
+
+        $publishedPosts = Post::published()->get();
+
+        $this->assertTrue($publishedPosts->contains($publishedPostA));
+        $this->assertTrue($publishedPosts->contains($publishedPostB));
+        $this->assertFalse($publishedPosts->contains($unpublishedPost));
     }
 }

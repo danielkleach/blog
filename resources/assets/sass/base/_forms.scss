@@ -1,0 +1,12 @@
+/****************************************
+ * Forms
+ ****************************************/
+
+.form-control:focus {
+    border-color: $color-red;
+    box-shadow: 0 0 8px rgba(209, 24, 24, 0.6);
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+}

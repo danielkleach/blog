@@ -1,0 +1,168 @@
+/************************************************************
+ *
+ * Base
+ *
+ ************************************************************/
+
+body {
+    color: $color-black;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    padding: 40px 20px 0;
+    text-align: center;
+    color: $color-dark-red;
+}
+
+main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    flex: 1 100%;
+
+    @include media-query(lap-and-up) {
+        flex: 4;
+    };
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
+}
+
+p {
+    padding-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover, a:active, a:focus {
+    text-decoration: underline;
+}
+
+span {
+    display: block;
+    padding-bottom: 20px;
+}
+
+table {
+    border-radius: 3px;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+tr th, tr td {
+    text-align: left;
+    padding: 10px 15px;
+    border: 1px solid $color-gray;
+}
+
+// Navigation
+.nav {
+    width: 100%;
+    line-height: 2.3rem;
+
+    @include media-query(tab-and-up) {
+        width: auto;
+    };
+}
+
+.nav > li {
+    display: inline-block;
+}
+
+.nav > li a {
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $color-gray;
+    font-weight: 700;
+    font-size: 14px;
+
+    @include media-query(tab-and-up) {
+        padding: 10px 15px;
+    };
+}
+
+.nav > li a:hover, .nav > li a:focus {
+    color: $color-black;
+    background: none !important;
+}
+
+// Content
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 20px 10px;
+
+    @include media-query(lap-and-up) {
+        margin: 40px 20px;
+    };
+}
+
+.article-block {
+    width: 100%;
+    padding: 20px;
+    margin-top: 40px;
+    border-left: 5px solid $color-dark-red;
+
+    @include media-query(lap-and-up) {
+        width: 360px;
+        border-left: 3px solid $color-dark-red;
+    };
+}
+
+.title a {
+    color: $color-black;
+}
+
+.subject a {
+    color: $color-dark-red;
+    text-transform: uppercase;
+}
+
+.content {
+    overflow: hidden;
+    max-height: 8.8em;
+    margin-bottom: 20px;
+}
+
+.content p {
+    line-height: 1.3em;
+}
+
+.read-more {
+    display: block;
+    text-decoration: underline;
+    font-size: 14px;
+    padding: 0;
+}
+
+.read-more a {
+    color: $color-dark-blue;
+    text-transform: uppercase;
+}
+
+.pagination {
+    flex: 1 100%;
+    text-align: right;
+}
+
+.alert {
+    padding: 10px 40px;
+}
+
+.alert p {
+    padding-bottom: 0;
+}
+
+.alert-dismissable .close {
+    right: 0;
+}

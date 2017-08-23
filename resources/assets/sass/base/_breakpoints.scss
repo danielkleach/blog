@@ -1,0 +1,13 @@
+/****************************************
+ * Breakpoints
+ ****************************************/
+
+// Define breakpoint aliases and conditions
+$breakpoints: (
+    "tab"           "screen and (min-width: 768px) and (max-width: 991px)",
+    "tab-and-up"    "screen and (min-width: 768px)",
+    "lap"           "screen and (min-width: 992px) and (max-width: 1199px)",
+    "lap-and-up"    "screen and (min-width: 992px)",
+    "desk"          "screen and (min-width: 1200px)",
+    "retina"        "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)"
+) !default;
