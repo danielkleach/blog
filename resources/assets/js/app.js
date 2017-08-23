@@ -1,6 +1,6 @@
 $(document).ready(function() {
     const win = $(window);
-    let page = 1;
+    let page = 2;
 
     win.scroll(function() {
         if ($(document).height() - win.height() == win.scrollTop()) {
