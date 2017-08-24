@@ -1,5 +1,5 @@
 <nav>
-    <div id="navbar" class="navbar-collapse collapse">
+    <div id="navbar">
         <ul class="nav">
             <li><a href="{{ route('home.index') }}">Home</a></li>
             <li><a href="https://github.com/danielkleach" target="_blank">Github</a></li>
