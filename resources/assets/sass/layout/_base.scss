@@ -119,23 +119,38 @@ tr th, tr td {
     };
 }
 
+.article-single {
+    width: 100%;
+    padding: 20px;
+    margin-top: 40px;
+    border-left: 5px solid $color-dark-red;
+
+    @include media-query(tab) {
+        border-left: 25px solid $color-dark-red;
+    };
+
+    @include media-query(lap-and-up) {
+        border-left: 250px solid $color-dark-red;
+    };
+}
+
 .title a {
     color: $color-black;
 }
 
-.subject a {
+.subject {
     color: $color-dark-red;
     text-transform: uppercase;
 }
 
 .content {
     overflow: hidden;
-    max-height: 8.8em;
+    max-height: 9.5em;
     margin-bottom: 20px;
 }
 
 .content p {
-    line-height: 1.3em;
+    line-height: 1.4em;
 }
 
 .read-more {
