@@ -23,9 +23,17 @@ Route::group(['prefix' => 'posts'], function () {
     Route::group(['prefix' => '{postSlug}'], function () {
 
         Route::get('/', ['as' => 'post.show', 'uses' => 'PostController@show']);
-        Route::patch('/', ['as' => 'post.update', 'uses' => 'PostController@update']);
-        Route::delete('/', ['as' => 'post.delete', 'uses' => 'PostController@destroy']);
+        Route::patch('/update', ['as' => 'post.update', 'uses' => 'PostController@update']);
+        Route::delete('/delete', ['as' => 'post.delete', 'uses' => 'PostController@destroy']);
+
+        Route::get('/publish', ['as' => 'post.publish', 'uses' => 'PublishedPostController@store']);
+        Route::get('/unpublish', ['as' => 'post.unpublish', 'uses' => 'PublishedPostController@destroy']);
     });
+});
+
+Route::group(['prefix' => 'admin'], function () {
+
+    Route::get('/', ['as' => 'admin.index', 'uses' => 'Admin\AdminController@index']);
 });
 
 Route::group(['prefix' => 'subjects'], function () {
