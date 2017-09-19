@@ -33,7 +33,7 @@ Route::group(['prefix' => 'posts'], function () {
     });
 });
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
     Route::get('/', ['as' => 'admin.index', 'uses' => 'Admin\AdminController@index']);
 });
