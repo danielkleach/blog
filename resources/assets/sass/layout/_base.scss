@@ -184,3 +184,8 @@ tr th, tr td {
 .alert-dismissable .close {
     right: 0;
 }
+
+// Datatables
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding : 0;
+}
