@@ -22,7 +22,6 @@ header {
 main {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
     flex: 1 100%;
 
     @include media-query(lap-and-up) {
@@ -114,7 +113,7 @@ tr th, tr td {
     border-left: 5px solid $color-dark-red;
 
     @include media-query(lap-and-up) {
-        width: 360px;
+        flex-basis: 33%;
         border-left: 3px solid $color-dark-red;
     };
 }
