@@ -13,6 +13,8 @@
 
 Auth::routes();
 
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
 
 Route::group(['prefix' => 'posts'], function () {
@@ -31,7 +33,7 @@ Route::group(['prefix' => 'posts'], function () {
     });
 });
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
     Route::get('/', ['as' => 'admin.index', 'uses' => 'Admin\AdminController@index']);
 });
