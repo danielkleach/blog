@@ -184,6 +184,13 @@ tr th, tr td {
     right: 0;
 }
 
+.code-snippet {
+    margin-top: 10px;
+    background-color: $color-slate-gray;
+    color: $color-white;
+    padding: 10px;
+}
+
 // Datatables
 .dataTables_wrapper .dataTables_paginate .paginate_button {
     padding : 0;
