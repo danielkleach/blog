@@ -43,7 +43,9 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
         'date' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'title' => $title,
         'slug' => str_slug($title),
+        'description' => $faker->realText(200),
         'content' => $faker->realText(400),
+        'preview_image_url' => $faker->imageUrl(),
         'published' => $faker->boolean(80)
     ];
 });

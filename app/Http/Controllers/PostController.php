@@ -30,14 +30,7 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $post = $this->postModel->create([
-            'subject_id' => $request->subject_id,
-            'date' => $request->date,
-            'title' => $request->title,
-            'slug' => $request->slug,
-            'content' => $request->content,
-            'published' => $request->published
-        ]);
+        $post = $this->postModel->create($request->all());
 
         return view('posts.show', compact('post'));
     }
