@@ -113,7 +113,7 @@ tr th, tr td {
     border-left: 5px solid $color-dark-red;
 
     @include media-query(lap-and-up) {
-        flex-basis: 33%;
+        width: 33%;
         border-left: 3px solid $color-dark-red;
     };
 }
