@@ -1,5 +1,14 @@
 @extends('layout.master')
 
+@section('twitter')
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@danielkleach">
+    <meta name="twitter:title" content="{{ $post->title }}">
+    <meta name="twitter:description" content="{{ $post->description }}">
+    <meta name="twitter:image" content="{{ $post->preview_image_url }}">
+    <meta name="twitter:creator" content="@danielkleach">
+@endsection
+
 @section('content')
     <main>
         <div class="article-single">
